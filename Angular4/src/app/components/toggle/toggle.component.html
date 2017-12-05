@@ -1,0 +1,28 @@
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">แก้ไข</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Account Number</label>
+        <input type="text" class="form-control" value="{{data.account_number}}" readonly="readonly">
+      </div>
+      <div class="form-group">
+        <label>Branch Name</label>
+        <input (keyup)="onChangeBrNm($event)" type="text" class="form-control" value="{{data.branch_name}}">
+      </div>
+      <div class="form-group">
+        <label>Balance</label>
+        <input (keyup)="onChangeBalnc($event)" type="number" class="form-control" value="{{data.balance}}">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-primary" (click)="submit()">Submit</button>
+      <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+    </div>
+    </ng-template>
+
+    <button class="btn btn-outline-primary" (click)="open(content)">แก้ไข</button>
